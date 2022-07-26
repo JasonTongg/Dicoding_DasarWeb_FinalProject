@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,300&display=swap');
+
 *{
     padding: 0;
     margin: 0;
@@ -5,15 +7,23 @@
 }
 
 :root{
-    --dark: #100F0F;
-    --light: #F1F1F1;
+    --dark: #2C3639;
+    --light: #DCD7C9;
+    --primary: #262859;
+    --lightPrimary: #3E417B;
+    --secondary: #A27B5C;
 }
 
 body{
-    font-family: 'Times New Roman', Times, serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 16px;
-    background-color: var(--light);
+    background-color: var(--primary);
     overflow-x: hidden;
+}
+
+h2,h3, h4, p{
+    color: var(--light);
+    position: relative;
 }
 
 #header{
@@ -23,11 +33,15 @@ body{
 }
 
 #header-navbar{
-    background-color: var(--dark);
+    background-color: var(--lightPrimary);
     display: flex;
     width: 100%;
     justify-content: flex-end;
     padding: .2rem 1rem;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
 }
 
 .navbar-item{
@@ -50,12 +64,13 @@ body{
     height: 50vh;
     position: relative;
     padding: 1rem 2rem;
+    box-shadow: 0 30px 30px rgba(62, 65, 123,.8);
 }
 
 #hero .content{
     width: 100%;
     height: 100%;
-    color: white;
+    color: var(--light);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -72,7 +87,7 @@ body{
 }
 
 #hero .content .image{
-    background-image: url("./asset/blake-connally-B3l0g6HLxr8-unsplash.jpg");
+    background-image: url("./asset/hero-Bg.jpg");
     width: 100%;
     height: 100%;
     background-position: center;
@@ -88,7 +103,7 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(62, 65, 123,.6);
     top: 0;
     left: 0;
     z-index: -1;
@@ -97,7 +112,8 @@ body{
 #main{
     padding: 1rem 2rem;
     width: 100vw;
-    background-color: var(--light);
+    background-color: var(--primary);
+    position: relative;
 }
 
 #main .content-container{
@@ -105,6 +121,8 @@ body{
     gap: 1rem;
     width: 100%;
     box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
 }
 
 .content-container #content{
@@ -114,8 +132,7 @@ body{
     height: 100%;
     box-sizing: inherit;
     padding: 1rem;
-    gap: 1rem;
-    box-shadow: .5px 1px 5px rgba(0,0,0,.2);
+    gap: 2rem;
     border-radius: 5px;
     padding: 3rem 1.5rem;
 }
@@ -134,8 +151,15 @@ body{
 }
 
 #article img{
-    width: 20%;
-    margin-right: 20px;
+    width: 10%;
+}
+
+#article img:nth-child(odd){
+    margin-right: 50px;
+}
+
+#article img:nth-child(even){
+    margin-left: 50px;
 }
 
 #article:not(:last-child){
@@ -155,20 +179,20 @@ body{
 #article .buttons{
     margin-top: 1rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 1rem;
 }
 
 .buttons button{
-    padding: 1rem 2rem;
-    background-color: var(--dark);
+    padding: .5rem 1rem;
+    background-color: var(--lightPrimary);
     color: var(--light);
     border: none;
     outline: none;
     cursor: pointer;
     border-radius: 50px;
-    font-size: 1.1rem;
+    font-size: 1rem;
 }
 
 .buttons button:hover{
@@ -189,16 +213,30 @@ body{
     justify-content: center;
     width: 25%;
     box-sizing: inherit;
-    box-shadow: .5px 1px 5px rgba(0,0,0,.3);
     padding: 1.5rem;
     gap: .5rem;
 }
 
-#aside img{
+.aside-image{
     width: 70%;
-    border-radius: 50%;
     position: relative;
-    filter: brightness(.8);
+}
+
+.aside-image img{
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 5px 5px 30px rgba(62, 65, 123,1);
+}
+
+.imageOverlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(62, 65, 123,.4);
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 #aside h2{
@@ -214,7 +252,7 @@ body{
 }
 
 #aside .aside-item{
-    box-shadow: .5px 1px 5px rgba(0,0,0,.3);
+    box-shadow: .15px .3px 3px rgba(62, 65, 123,.3);
     width: 100%;
     padding: 1rem;
     margin-top: .8rem;
@@ -232,17 +270,22 @@ body{
     transform: translateX(300px);
 }
 
+.aside-info, .aside-info2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .sertification{
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: start;
-    padding: 1rem;
-    width: 96vw;
-    box-shadow: .5px 1px 5px rgba(0,0,0,.3);
+    width: calc(100vw - 4rem);
     margin-top: 2rem;
-    background-color: var(--light) !important;
+    background-color: var(--primary) !important;
     position: relative;
     height: 130px;
     overflow: hidden;
@@ -261,12 +304,13 @@ body{
     position: absolute;
     bottom: 15px;
     left: 0;
-    animation: autoScroll 10s linear infinite;
+    animation: autoScroll 30s linear infinite;
+    z-index: 3;
 }
 
 @keyframes autoScroll {
     50%{
-        transform: translateX(-26%);
+        transform: translateX(-65.5%);
     }
     100%{
         transform: translateX(0%);
@@ -275,23 +319,256 @@ body{
 
 .sertification .items a{
     text-decoration: none;
-    background-color: var(--dark);
+    background-color: var(--lightPrimary);
     color: var(--light);
     padding: .5rem;
     border-radius: 30px;
-    width: 100px;
     text-align: center;
+    width: 270px;
+}
+
+.moon{
+    position: absolute;
+    z-index: 1;
+}
+
+.orange-moon{
+    width: 40px;
+    top: 4%;
+    left: 48%;
+}
+
+.purple-moon{
+    width: 100px;
+    top: 75%;
+    left: 25%;
+}
+
+.blue-moon{
+    width: 80px;
+    top: 20%;
+    left: 70%;
+}
+
+.pink-moon{
+    width: 60px;
+    top: 33%;
+    left: 30%;
+}
+
+.green-moon{
+    width: 80px;
+    top: 65%;
+    right: 27%;
+}
+
+.object1{
+    top: 0;
+    right: 0;
+    z-index: 0;
+    width: 45%;
+}
+
+.object2{
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    width: 20%;
+}
+
+.star1{
+    width: 90%;
+    top: 5%;
+    left: 5%;
+}
+
+.star2{
+    display: none;
+    width: 90%;
+    top: 50%;
+    left: 5%;
+}
+
+.star3{
+    display: none;
+    width: 90%;
+    top: 75%;
+    left: 5%;
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem 2rem;
+    background-color: var(--lightPrimary);
+    color: var(--light);
+    width: 100vw;
+}
+
+@media only screen and (max-width: 1200px){
+    #article img{
+        width: 15%;
+    }
+
+    .purple-moon{
+        top: 75%;
+    }
+
+    .green-moon{
+        right: 25%;
+    }
+}
+
+@media only screen and (max-width: 1000px){
+    .blue-moon{
+        top: 38%;
+        left: 70%;
+    }
+
+    .pink-moon{
+        left: 40%;
+    }
+
+    .purple-moon{
+        width: 40px;
+        top: 18%;
+        left: 5%;
+    }
+
+    .green-moon{
+        right: 18%;
+    }
+
+    .orange-moon{
+        left: 80%;
+    }
+
+    #article .article-text p{
+        font-size: 1rem;
+    }
+
+    #article img{
+        width: 20%;
+    }
+
+    #article img:nth-child(odd){
+        margin-right: 30px;
+    }
+    
+    #article img:nth-child(even){
+        margin-left: 30px;
+    }
+
+    .content-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content-container #content, .content-container #aside{
+        width: 100%;
+    }
+
+    .content-container #aside{
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .aside-info2{
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #aside .aside-item{
+        width: 25%;
+        min-width: 150px;
+        overflow: auto;
+    }
+
+    #aside .aside-info .aside-image .imageOverlay{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .aside-image img{
+        width: 30%;
+    }
+
+    .imageOverlay{
+        width: 30%;
+        
+    }
+
+    .star2{
+        display: block;
+    }
 }
 
 @media only screen and (max-width: 900px){
     .navbar-item{
         width: 60%;
     }
+
+    #article img{
+        width: 30%;
+    }
+
+    .star2{
+        top: 40%;
+    }
 }
 
 @media only screen and (max-width: 600px){
+    #main{
+        padding: .5rem;
+    }
+
+    .sertification{
+        width: calc(100vw - 2rem);
+    }
+    
     .navbar-item{
         width: 75%;
+    }
+
+    #aside .aside-item{
+        font-size: .8rem;
+    }
+
+    .blue-moon{
+        width: 60px;
+        top: 37%;
+    }
+
+    .pink-moon{
+        top: 61%;
+        left: 20%;
+    }
+
+    .green-moon{
+        width: 60px;
+        top: 61%;
+    }
+
+    .star3{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .pink-moon{
+        top: 65%;
+    }
+
+    .green-moon{
+        top: 65%;
+    }
+
+    .blue-moon{
+        top: 40%;
     }
 }
 
