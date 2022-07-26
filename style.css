@@ -38,7 +38,6 @@ h2,h3, h4, p{
     width: 100%;
     justify-content: flex-end;
     padding: .2rem 1rem;
-    position: sticky;
     top: 0;
     left: 0;
     z-index: 10;
@@ -569,6 +568,14 @@ footer{
 
     .blue-moon{
         top: 40%;
+    }
+
+    #article img{
+        display: none;
+    }
+
+    .article-text{
+        width: 100%;
     }
 }
 
